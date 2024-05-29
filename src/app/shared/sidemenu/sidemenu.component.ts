@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { routes } from '../../app.routes';
 import { RouterModule } from '@angular/router';
 
@@ -11,7 +11,11 @@ import { RouterModule } from '@angular/router';
   styles: ``
 })
 export class SidemenuComponent {
+  public showContent = signal(false);
+  public toggleContent() {
+    this.showContent.update( value => !value );
 
+  }
   public menuItems = routes
  
     .map( route => route.children ?? [])
