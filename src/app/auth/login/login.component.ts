@@ -1,13 +1,24 @@
+import { LoginBase } from './../../core/models/loginbase.interface';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {FormGroup, ReactiveFormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule],
+ // providers: [QuestionControlService],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styles: ``,
 })
 export class LoginComponent {
 
+  @Input() question!:LoginBase<string>;
+  @Input() form!: FormGroup;
+  get isValid() {
+    return this.form.controls[this.question.key].valid;
+  }
 }
+
+
