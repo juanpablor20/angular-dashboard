@@ -1,4 +1,4 @@
-export class LoginBase<T> {
+export class QuestionBase<T> {
     value: T | undefined;
     key: string;
     label: string;
@@ -29,10 +29,3 @@ export class LoginBase<T> {
       this.options = options.options || [];
     }
   }
-export class TextboxQuestion extends LoginBase<string> {
-  override controlType = 'textbox';
-}
-
-export class DropdownQuestion extends LoginBase<string> {
-  override controlType = 'dropdown';
-}

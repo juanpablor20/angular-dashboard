@@ -3,25 +3,31 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   
-    {
-   path: '',
-   loadChildren: () => import('./auth/auth.routes').then(m => m.AUTH_ROUTES)
-    },
+  //   {
+  //  path: '',
+  //  loadChildren: () => import('./auth/auth.routes').then(m => m.AUTH_ROUTES)
+  //   },
+
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.routes').then(m => m.DASHBOARD_ROUTES)
+  },
     // {
     //   path: 'dashboard',
     //   loadChildren: () => import('./dashboard/dashboard.component').then(m. => matchMedia.ADMIN_routes)
     // },
-  //   path: 'dashboard',
-  //   loadComponent: () => import('./dashboard/dashboard.component'),
-  //   children: [
-  //     {
-  //       path: 'change-detection',
-  //       title: 'Change Detection',
-  //       loadComponent: () =>
-  //         import(
-  //           './dashboard/pages/change-detection/change-detection.component'
-  //         ),
-  //     },
+    {
+     path: 'dashboard',
+     loadComponent: () => import('./dashboard/dashboard.component'),
+     children: [
+       {
+         path: 'change-detection',
+         title: 'Change Detection',
+         loadComponent: () =>
+           import(
+             './dashboard/pages/change-detection/change-detection.component'
+           ),
+       },
       {
         path: 'control-flow',
         title: 'Control Flow',
@@ -63,23 +69,23 @@ export const routes: Routes = [
             './dashboard/pages/users/users.component'
           ),
       },
-  //     {
-  //       path: 'view-transition',
-  //       title: 'Views Transition',
-  //       loadComponent: () =>
-  //         import(
-  //           './dashboard/pages/view-transition/view-transition.component'
-  //         ),
-  //     },
-  //     {
-  //     path: '', redirectTo: 'control-flow', pathMatch: 'full',
-  //     }
-  //   ],
-  // },
+      {
+        path: 'view-transition',
+        title: 'Views Transition',
+        loadComponent: () =>
+          import(
+            './dashboard/pages/view-transition/view-transition.component'
+          ),
+      },
+      {
+      path: '', redirectTo: 'control-flow', pathMatch: 'full',
+      }
+    ],
+  },
 
-  // // {
-  // //   path: '',
-  // //   redirectTo: '/dashboard',
-  // //   pathMatch: 'full',
-  // // },
+   {
+     path: '',
+     redirectTo: '/dashboard',
+    pathMatch: 'full',
+   },
 ];
