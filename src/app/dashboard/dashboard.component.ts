@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 import { SidemenuComponent } from '@shared/sidemenu/sidemenu.component';
-import { HeroSectionComponent } from './pages/hero-section/hero-section.component';
+import { HeroSectionComponent } from '../shared/hero-section/hero-section.component';
 
 @Component({
   standalone: true,
